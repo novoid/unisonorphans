@@ -5,7 +5,7 @@ show_help()
 {
 cat <<EOF
 
-  - Time-stamp: <2013-03-17 11:37:27 vk>
+  - Time-stamp: <2013-03-17 12:00:58 vk>
   - Author:     Karl Voit, tools@Karl-Voit.at
   - License:    GPL v3
 
@@ -90,11 +90,7 @@ handle_item()
 {
     item="${1}"
 
-    if [ -d "${item}" ]; then
-	echo "directory: ${item}"
-    elif [ -f "${item}" ]; then
-	echo "file:      ${item}"
-    elif [ -L "${item}" ]; then
+    if [ -L "${item}" ]; then
 	echo "symlink:   ${item}"
     elif [ -b "${item}" ]; then
 	echo "block:     ${item}"
@@ -102,6 +98,10 @@ handle_item()
 	echo "character: ${item}"
     elif [ -p "${item}" ]; then
 	echo "named pipe:${item}"
+    elif [ -d "${item}" ]; then
+	echo "directory: ${item}"
+    elif [ -f "${item}" ]; then
+	echo "file:      ${item}"
     elif [ -e "${item}" ]; then
 	echo "EXISTS:    ${item}"
     else
