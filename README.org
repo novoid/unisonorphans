@@ -1,0 +1,50 @@
+## Time-stamp: <2013-03-17 11:45:09 vk>
+## -*- coding: utf-8 -*-
+## This file is best viewed with GNU Emacs Org-mode: http://orgmode.org/
+
+* unisonorphans.sh
+
+If you are using [[http://www.cis.upenn.edu/~bcpierce/unison/][unison file synchronizer]] and you wonder which 
+of the ignored files exists locally (and are not synced), you might 
+like this script :-)
+
+This shell script analyzes $PRFFILES (preferences files from unison) 
+and prints out information about ignored items: item type (file, 
+directory, link, ...) or if item is missing.
+
+If you give any parameter (other than "--help" or similar) to 
+this script, missing items are not listed. This is handy to look 
+only for local files that do not get synchronized.
+
+Please modify the content of $PRFFILES (to meet your requirements)
+in unisonorphans.sh
+
+Depends on: sed, grep, mktemp
+
+** Usage 
+
+  : unisonorphans.sh
+                ... lists all ignored items and their type
+
+  : unisonorphans.sh --ignore
+                ... lists only ignored items that exist locally
+
+
+** License
+
+GPL v3 (see license.txt)
+
+* Contribute!
+
+I am looking for your ideas!
+
+If you want to contribute to this cool project, please fork and
+contribute!
+
+
+* Local Variables                                                  :noexport:
+# Local Variables:
+# mode: auto-fill
+# mode: flyspell
+# eval: (ispell-change-dictionary "en_US")
+# End:
